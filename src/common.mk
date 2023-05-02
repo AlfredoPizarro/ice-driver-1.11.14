@@ -81,6 +81,7 @@ endif
 ifeq (,${KSRC})
   $(warning *** Kernel header files not in any of the expected locations.)
   $(warning *** Install the appropriate kernel development package, e.g.)
+  $(info $(BUILD_KERNEL))
   $(error kernel-devel, for building kernel modules and try again)
 else
 ifeq (/lib/modules/${BUILD_KERNEL}/source, ${KSRC})
