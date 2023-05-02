@@ -56,15 +56,7 @@ endif
 
 # Kernel Search Path
 # All the places we look for kernel source
-KSP :=  /lib/modules/${BUILD_KERNEL}/source \
-        /lib/modules/${BUILD_KERNEL}/build \
-        /usr/src/linux-${BUILD_KERNEL} \
-        /usr/src/linux-$(${BUILD_KERNEL} | sed 's/-.*//') \
-        /usr/src/kernel-headers-${BUILD_KERNEL} \
-        /usr/src/kernel-source-${BUILD_KERNEL} \
-        /usr/src/linux-$(${BUILD_KERNEL} | sed 's/\([0-9]*\.[0-9]*\)\..*/\1/') \
-        /usr/src/linux \
-        /usr/src/kernels/${BUILD_KERNEL} \
+KSP :=   /usr/src/kernels/${BUILD_KERNEL} \
         /usr/src/kernels
 
 # prune the list down to only values that exist and have an include/linux
@@ -79,7 +71,7 @@ ifeq (,${KSRC})
 endif
 
 ifeq (,${KSRC})
-  $(warning *** Kernel header files not in any of the expected locations ${KSP} ${KSRC}.)
+  $(warning *** Kernel header files not in any of the expected locations.)
   $(warning *** Install the appropriate kernel development package, e.g.)
   $(error kernel-devel, for building kernel modules and try again)
 else
