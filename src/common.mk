@@ -79,7 +79,7 @@ ifeq (,${KSRC})
 endif
 
 ifeq (,${KSRC})
-  $(warning *** Kernel header files not in any of the expected locations ${KSRC}.)
+  $(warning *** Kernel header files not in any of the expected locations ${KSP} ${KSRC}.)
   $(warning *** Install the appropriate kernel development package, e.g.)
   $(error kernel-devel, for building kernel modules and try again)
 else
