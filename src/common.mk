@@ -77,6 +77,11 @@ KSP := $(foreach dir, ${KSP}, ${test_dir})
 ifeq (,${KSRC})
   KSRC := $(firstword ${KSP})
 endif
+ 
+#debug
+  $(info $(KSP))
+  $(info $(KSRC))
+  $(info $(BUILD_KERNEL))
 
 ifeq (,${KSRC})
   $(warning *** Kernel header files not in any of the expected locations.)
