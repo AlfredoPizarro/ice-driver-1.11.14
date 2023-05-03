@@ -74,15 +74,10 @@ test_dir = $(shell [ -e ${dir}/include/linux ] && echo ${dir})
 KSP := $(foreach dir, ${KSP}, ${test_dir})
 
 # we will use this first valid entry in the search path
-ifeq (,${KSRC})
+ifneq (,${KSRC})
   KSRC := $(firstword ${KSP})
 endif
  
-#debug
-  $(info $(KSP))
-  $(info $(KSRC))
-  $(info $(BUILD_KERNEL))
-
 ifeq (,${KSRC})
   $(warning *** Kernel header files not in any of the expected locations.)
   $(warning *** Install the appropriate kernel development package, e.g.)
